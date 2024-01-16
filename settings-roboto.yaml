@@ -1,0 +1,52 @@
+# The different weights to prcess. Each source font must have all the weights listed here.
+weights:
+  - Regular
+  - Bold
+  - Light
+  - Medium
+  - Thin
+
+# The file extension of the source font files.
+fontFileType: ".ttf"
+# The file extension of the saved font files - should always be .sfd for FontForge to be able to open.
+saveFileType: ".sfd"
+
+# These are the ranges of symbols that we will pull from the monospace font. These numbers are in ASCII decimal.
+# Good places to look up the ranges are https://theasciicode.com.ar/ and https://www.ascii-code.com/
+symbolRanges:
+  - [13, 13]
+  - [32, 47]
+  - [58, 64]
+  - [91, 96]
+  - [123, 126]
+  - [160, 160]
+
+# These are various name settings used for building the new fonts.
+version: 1.0.0
+copyright:
+  - Roboto - Copyright 2011 Google Inc. All Rights Reserved. Roboto is a trademark of Google.
+  - Roboto Mono - Copyright 2015 The Roboto Mono Project Authors (https://github.com/googlefonts/robotomono). Roboto Mono is a trademark of Google.
+  - Roboto Serif - Copyright 2020 The Roboto Serif Project Authors (https://github.com/googlefonts/RobotoSerif). Roboto Serif is a trademark of Google, Inc.
+fullName: Roboto Semi Mono
+technicalName: RobotoSemiMono
+
+# We can optionally resize fonts coming from the italic and monospace fonts. These are the resize factors.
+resize:
+  italic:
+    symbol: 0.488
+    font: 0.95
+
+# These are the paths to the source fonts and the target fonts. The baseName is the name of the font file without the weight or file extension.
+regular:
+  path: original/Roboto/
+  baseName: Roboto-
+italic:
+  path: original/Roboto_Serif/static/
+  baseName: RobotoSerif-
+mono:
+  path: original/Roboto_Mono/static/
+  baseName: RobotoMono-
+target:
+  path: saved/
+  baseName: RobotoSemiMono-
+  exportPath: output/
