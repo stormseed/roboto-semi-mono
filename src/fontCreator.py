@@ -210,35 +210,32 @@ def create_font(font_type: str, weight: str, settings: dict):
     debug("sfnt_names = ")
     debug(target_font.sfnt_names)
 
-    # try to transform sizes if italic
-    if is_italic:
-        select_all(target_font)
-        try:
-            target_font = transform_size(
-                target_font, font_info["resize"]["italic"]["font"]
-            )
-        except KeyError:
-            debug("italic font resize not found - skipping")
-            pass
+    resizeType = "italic" if is_italic else "regular"
+
+    # try to transform sizes
+    select_all(target_font)
+    try:
+        target_font = transform_size(
+            target_font, settings["resize"][resizeType]["font"]
+        )
+    except KeyError:
+        debug(resizeType + " font resize not found - skipping")
+        pass
 
     # copy in mono font symbols
     select_symbols(mono_font, settings, "copy")
     select_symbols(target_font, settings, "paste")
 
     # transform symbol sizes if available
-    if is_italic:
-        select_symbols(target_font, settings)
-        try:
-            transform_size(target_font, font_info["resize"]["italic"]["symbol"])
-        except KeyError:
-            debug("italic symbol resize not found - skipping")
-            pass
-    else:
-        try:
-            transform_size(target_font, font_info["resize"]["regular"]["symbol"])
-        except KeyError:
-            debug("regular symbol resize not found - skipping")
-            pass
+    debug("font_info = ")
+    debug(font_info)
+
+    select_symbols(target_font, settings)
+    try:
+        transform_size(target_font, settings["resize"][resizeType]["symbol"])
+    except KeyError:
+        debug(resizeType + " symbol resize not found - skipping")
+        pass
 
     # adjust font names
     target_font = adjust_font_names(

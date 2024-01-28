@@ -15,14 +15,14 @@ sfntRevision: 0x00022312
 LayerCount: 2
 Layer: 0 1 "Back" 1
 Layer: 1 1 "Fore" 0
-XUID: [1021 788 -1684003395 13221411]
+XUID: [1021 216 341419518 11015544]
 StyleMap: 0x0020
 FSType: 0
 OS2Version: 3
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1221222574
-ModificationTime: 1704833930
+ModificationTime: 1706467769
 PfmFamily: 17
 TTFWeight: 700
 TTFWidth: 5
